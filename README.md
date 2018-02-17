@@ -1,8 +1,22 @@
 # MerkleTree
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/merkle_tree`. To experiment with that code, run `bin/console` for an interactive prompt.
+Generate a Merkle tree given the following body of data, using SHA-2 as your hashing algorithm
 
-TODO: Delete this and the text above, and describe your gem
+Your data is the following blocks:
+
+```
+ "We", "hold", "these", "truths", "to", "be", "self-evident", "that"
+```
+
+* In the internal stages, concatenate blocks as so: `"#{blockA.hash}||#{blockB.hash}"`
+* Do not use any special padding for leaf vs internal nodes
+* The merkle root should be equal to `c4f66b2f97c9fb2fcb58b08b4f260d396b5c972ff4948c7deccc81fa34db1a44`
+
+**Bonuses**
+
+* Bonus 1: create a padding scheme so that arbitrary numbers of blocks can be Merkleized.
+* Bonus 2: add different padding to the leaves as opposed to internal nodes, so that preimage attacks are impossible.
+* Bonus 3: implement an interface for Merkle proofs. Have a `prove_inclusion(block)` function and a `verify_inclusion(proof, merkle_root)` function.
 
 ## Installation
 
@@ -32,7 +46,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/merkle_tree.
+Bug reports and pull requests are welcome on GitHub at https://github.com/mdayaram/merkle_tree.
 
 ## License
 
