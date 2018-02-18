@@ -10,7 +10,7 @@ Your data is the following blocks:
 
 * In the internal stages, concatenate blocks as so: `"#{blockA.hash}||#{blockB.hash}"`
 * Do not use any special padding for leaf vs internal nodes
-* The merkle root should be equal to `c4f66b2f97c9fb2fcb58b08b4f260d396b5c972ff4948c7deccc81fa34db1a44`
+* The merkle root should be equal to `4a359c93d6b6c9beaa3fe8d8e68935aa5b5081bd2603549af88dee298fbfdd0a`
 
 **Bonuses**
 
