@@ -24,46 +24,6 @@ module MerkleTree
       @root.hash
     end
 
-    # Returns a list of hashes of the neighbor at each level.
-    def proof_of_inclusion(value)
-      node = value_nodes.find { |v| v.value == value }
-      raise "Value #{value} does not exist in MerkleTree" if node.nil?
-
-      proof = [node.value]
-      while node.parent != nil
-        if node.parent.left_hash != node.hash
-          proof << ['L', node.parent.left_hash]
-        elsif node.parent.right_hash != node.hash
-          proof << ['R', node.parent.right_hash]
-        end
-
-        if node.parent.left_hash != node.hash && node.parent.right_hash != node.hash
-          raise "something weird!"
-        end
-
-        node = node.parent
-      end
-
-      proof
-    end
-
-    # Note: does not use any instance methods.
-    def validate_inclusion(proof, root_hash)
-      proof = proof.dup
-      ihash = Digest::SHA2.hexdigest("L:#{proof.shift}")
-
-      while !proof.empty?
-        neighbor = proof.shift
-        if neighbor.first == "L"
-          ihash = Digest::SHA2.hexdigest("N:#{neighbor.last}||#{ihash}")
-        else
-          ihash = Digest::SHA2.hexdigest("N:#{ihash}||#{neighbor.last}")
-        end
-      end
-
-      ihash == root_hash
-    end
-
     private
 
     def pad_values(nodes)

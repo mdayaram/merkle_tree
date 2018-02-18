@@ -8,9 +8,13 @@ module MerkleTree
     attr_reader :right
     attr_reader :right_hash
 
+    attr_reader :hashing_scheme
+
     attr_accessor :parent
 
     def initialize(left:, right:)
+      @hashing_scheme = HashingScheme.new
+
       @left = left
       @left_hash = left.hash
 
@@ -19,7 +23,7 @@ module MerkleTree
     end
 
     def hash
-      Digest::SHA2.hexdigest("N:#{left_hash}||#{right_hash}")
+      hashing_scheme.hash_node(left_hash, right_hash)
     end
   end
 end
