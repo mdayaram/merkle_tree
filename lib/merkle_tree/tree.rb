@@ -1,5 +1,5 @@
 module MerkleTree
-  class Root
+  class Tree
     attr_reader :root
     attr_reader :value_nodes
 
