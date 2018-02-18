@@ -2,12 +2,11 @@ require 'digest'
 
 module MerkleTree
   class HashingScheme
-
     attr_reader :digester
     attr_reader :leaf_prefix
     attr_reader :node_prefix
 
-    def initialize(digester: Digest::SHA2, leaf_prefix: "L:", node_prefix: "N:")
+    def initialize(digester: Digest::SHA2, leaf_prefix: "🍁:", node_prefix: "🐙:")
       @digester = digester
       @leaf_prefix = leaf_prefix
       @node_prefix = node_prefix
