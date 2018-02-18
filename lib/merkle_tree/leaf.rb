@@ -9,7 +9,7 @@ module MerkleTree
     end
 
     def hash
-      Digest::SHA2.hexdigest(value)
+      Digest::SHA2.hexdigest("L:#{value}")
     end
   end
 end

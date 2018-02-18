@@ -17,7 +17,7 @@ module MerkleTree
     end
 
     def hash
-      Digest::SHA2.hexdigest("#{left_hash}||#{right_hash}")
+      Digest::SHA2.hexdigest("N:#{left_hash}||#{right_hash}")
     end
   end
 end

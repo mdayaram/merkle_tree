@@ -1,12 +1,9 @@
 require 'digest'
 
 module MerkleTree
-  class Pad
+  class Pad < Leaf
     def initialize
-    end
-
-    def hash
-      Digest::SHA2.hexdigest("")
+      super(value: "")
     end
   end
 end
