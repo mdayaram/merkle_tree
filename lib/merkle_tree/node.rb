@@ -8,6 +8,8 @@ module MerkleTree
     attr_reader :right
     attr_reader :right_hash
 
+    attr_accessor :parent
+
     def initialize(left:, right:)
       @left = left
       @left_hash = left.hash

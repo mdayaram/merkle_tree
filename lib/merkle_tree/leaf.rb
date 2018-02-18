@@ -3,6 +3,7 @@ require 'digest'
 module MerkleTree
   class Leaf
     attr_reader :value
+    attr_accessor :parent
 
     def initialize(value:)
       @value = value
